@@ -22,6 +22,7 @@ def countries_list(request: HttpRequest):
 
 
 def countries_list_alphabet(request: HttpRequest, char: str,):
+    # TODO: фильтровать страны питоном - плохая идея, фильтрация должна быть на уровне БД, используйте метод .filer()
     countries = [x for x in Country.objects.all() if x.name.startswith(char)]
     return render(request, 'countries/countries_list_alphabet.html', {
         'countries': countries,
